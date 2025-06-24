@@ -10,15 +10,15 @@ using WPFSoft.Models;
 
 namespace WPFSoft.ViewModels
 {
-    public class EmployeesViewModel : INotifyPropertyChanged
+    public class EmployeesViewModel : INotifyPropertyChanged, IEmployeesViewModel
     {
-        private readonly EmployeeRepository _repository;
+        private readonly IEmployeeRepository _repository;
         private string _filter;
         public ObservableCollection<EmployeeModel> AllEmployees { get; set; } 
         private ICollectionView _employeesView;
-        public EmployeesViewModel()
+        public EmployeesViewModel(IEmployeeRepository employeeRepository)
         {
-            _repository = new EmployeeRepository();
+            _repository = employeeRepository;
             LoadData();
         }
 
@@ -37,7 +37,7 @@ namespace WPFSoft.ViewModels
             get => _filter;
             set
             {
-                if (_filter != value)
+                if (_filter != null)
                 {
                     _filter = value?.ToLower();
                     OnPropertyChanged();
@@ -45,11 +45,10 @@ namespace WPFSoft.ViewModels
                 }
             }
 
-            /* 
-            1. Как работает Filter?
+            /* Как работает Filter?
             В XAML: <TextBox Text="{Binding Filter, UpdateSourceTrigger=PropertyChanged}" />
             Это означает:
-            каждый раз, когда пользователь меняет текст в TextBox, это значение передаётся в свойство Filter твоего ViewModel.
+            каждый раз, когда пользователь меняет текст в TextBox, это значение передаётся в свойство Filter во ViewModel.
              */
         }
 

@@ -1,8 +1,7 @@
 ﻿<Application x:Class="WPFSoft.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:WPFSoft"
-             StartupUri="Views/EmployessView.xaml">
+             xmlns:local="clr-namespace:WPFSoft">
     <Application.Resources>
          
     </Application.Resources>
