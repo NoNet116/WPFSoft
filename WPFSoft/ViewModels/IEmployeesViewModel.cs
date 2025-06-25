@@ -1,7 +1,7 @@
-﻿using DAL.Models;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
+using WPFSoft.Models;
 
-namespace WPFSoft.Models
+namespace WPFSoft.ViewModels
 {
     public interface IEmployeesViewModel
     {

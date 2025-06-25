@@ -37,7 +37,7 @@ namespace WPFSoft.ViewModels
             get => _filter;
             set
             {
-                if (_filter != null)
+                if (_filter != value)
                 {
                     _filter = value?.ToLower();
                     OnPropertyChanged();

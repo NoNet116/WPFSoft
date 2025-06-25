@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFSoft.Views"
-        xmlns:vm="clr-namespace:WPFSoft.ViewModels" d:DataContext="{d:DesignInstance Type=vm:EmployeesViewModel}"
+        xmlns:vm="clr-namespace:WPFSoft.ViewModels"
         mc:Ignorable="d"
         Title="EmployeesView" Height="450" Width="800">
    
@@ -17,25 +17,31 @@
             <RowDefinition Height="auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+        <TextBox Grid.Column="1" MinHeight="30" Text="Test"/>
         <TextBox MinHeight="30" Text="{Binding Filter, UpdateSourceTrigger=PropertyChanged}"/>
-        <ListView Grid.Row="1" ItemsSource="{Binding EmployeesView, UpdateSourceTrigger=PropertyChanged}" MouseDoubleClick="ListView_MouseDoubleClick">
+        <ListView Grid.Row="1" 
+                  ItemsSource="{Binding EmployeesView, UpdateSourceTrigger=PropertyChanged}" 
+                  MouseDoubleClick="ListView_MouseDoubleClick"
+                  x:Name="lview_emp">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding LastName}">
+                    <GridViewColumn Width="Auto"  DisplayMemberBinding="{Binding LastName}">
                         <GridViewColumnHeader Content="LastName"/>
                     </GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding FirstName}">
+                    <GridViewColumn Width="Auto"  DisplayMemberBinding="{Binding FirstName}">
                         <GridViewColumnHeader Content="FirstName"/>
                     </GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding Age}">
+                    <GridViewColumn Width="Auto"  DisplayMemberBinding="{Binding Age}">
                         <GridViewColumnHeader Content="Age"/>
                     </GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding CityName}">
+                    <GridViewColumn Width="Auto"  DisplayMemberBinding="{Binding CityName}">
                         <GridViewColumnHeader Content="City"/>
                     </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
-
+        <StackPanel Grid.Column="1" Grid.Row="1">
+            <Button Content="Open" Click="Button_Click"/>
+        </StackPanel>
     </Grid>
 </Window>

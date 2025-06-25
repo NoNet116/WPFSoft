@@ -1,7 +1,6 @@
 ﻿using DAL.Repositories;
 using System.Windows;
 using Unity;
-using WPFSoft.Models;
 using WPFSoft.ViewModels;
 using WPFSoft.Views;
 
@@ -18,6 +17,9 @@ namespace WPFSoft
             IUnityContainer container = new UnityContainer();
             container.RegisterType<IEmployeeRepository, EmployeeRepository>();
             container.RegisterType<IEmployeesViewModel, EmployeesViewModel>();
+            container.RegisterType<IEmployeeViewModel, EmployeeViewModel>();
+            container.RegisterType<IEmployeeViewModel1, EmployeeViewModel1>();
+
             container.Resolve<EmployeesView>().Show();
 
         }
